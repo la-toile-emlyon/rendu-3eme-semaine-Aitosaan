@@ -94,7 +94,8 @@ header nav a:hover:not(.cta) {
     text-decoration: underline;
 }
 
-main section {
+main section,
+footer {
     padding: calc(var(--gouttiere) * 2) 0;
 }
 
@@ -146,8 +147,10 @@ h1,
     margin-bottom: calc(var(--gouttiere) / 2);
 }
 
-p span {
+p span,
+p strong {
     font-family: "Parisienne", cursive;
+    font-weight: 400;
     font-size: 20px;
 }
 
@@ -175,11 +178,14 @@ h2 {
     object-fit: cover;
 }
 
-#prestations h3 {
+h3 {
     margin: calc(var(--gouttiere) / 2) 0;
-    text-align: center;
     font-weight: 600;
     font-size: 18px;
+}
+
+#prestations h3 {
+    text-align: center;
 }
 
 #valeurs p {
@@ -220,23 +226,94 @@ h2 {
 }
 
 #galerie article {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(25%, min-content);
-    /*grid-template-rows: repeat(4, 1fr);*/
-    height: 33vh;
+    justify-content: space-between;
+    align-items: start;
+    position: relative;
+    margin-bottom: calc(11vh + var(--gouttiere));
 }
 
-#galerie article img {
-    grid-column: 1 / 4;
-    grid-row: 1 / 5;
-    width: 100%;
-    height: 100%;
+#galerie article:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+#galerie img {
+    /*position: relative;
+    z-index: 1;*/
+    width: 55%;
+    height: 33vh;
     object-fit: cover;
 }
 
 #galerie article div {
-    grid-column: 3 / 5;
-    grid-row: 2 / auto;
+    position: relative;
+    top: 11vh;
+    z-index: 99;
+    width: 45%;
     background-color: var(--background2);
+    padding: calc(var(--gouttiere) / 2);
+}
+
+#galerie article:nth-of-type(odd) div {
+    /*right: calc(60% / 4);*/
+    right: 0;
+    transform: translateX(-15%);
+}
+
+#galerie article:nth-of-type(even) div {
+    /*left: calc(60% / 4);*/
+    left: 0;
+    transform: translateX(15%);
+}
+
+#galerie p {
+    margin-bottom: calc(var(--gouttiere) / 2);
+}
+
+#temoignages .flexbox {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gouttiere);
+}
+
+#temoignages figure {
+    padding: calc(var(--gouttiere) / 2);
+    width: calc(50% - var(--gouttiere) / 2);
+    background-color: var(--background);
+}
+
+#temoignages figcaption {
+    margin: calc(var(--gouttiere) / 2);
+}
+
+#temoignages figcaption p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#temoignages figcaption strong {
+    display: block;
+    margin-left: calc(var(--gouttiere) / 2);
+    font-weight: 400;
+    font-style: italic;
+}
+
+footer {
+
+}
+
+footer .flexbox > * {
+    flex: 1;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer input,
+footer textarea {
+    width: 100%;
+}
+
+footer img {
+    width: 40px;
 }
