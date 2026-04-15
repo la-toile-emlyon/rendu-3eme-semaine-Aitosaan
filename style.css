@@ -297,10 +297,6 @@ h3 {
     font-style: italic;
 }
 
-footer {
-
-}
-
 footer .flexbox > * {
     flex: 1;
 }
